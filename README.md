@@ -23,7 +23,7 @@ Le repository peut être hébergé sur Github ou Gitlab. Si l’accès est priv�
 ## Comment installer et lancer l'application en local
 
 ## Lien de la version en ligne
-
+https://ferway-bea2e.web.app/
 ## Bilan de l'exercice
 ### Difficultés
 ### Réussites
