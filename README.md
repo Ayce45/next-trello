@@ -1,27 +1,30 @@
-# Next.js + Tailwind CSS Example
+# Exercice Développeur React (Trello)
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+## Énoncé
 
-## Deploy your own
+- L’objectif est de recréer le plus fidèlement possible l'application fournie : [https://next-trello.web.app/](https://next-trello.web.app/).
+- Le but est d’avoir une application *pixel perfect*
+- Il n’est pas demandé d’améliorer l’application
+- Il n’y a pas besoin de gérer quelconque base de données
+- L’application sera à déployer via Firebase ([Hosting](https://firebase.google.com/products/hosting))
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+## Points d’attention
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+- La durée est libre, dans la limite de 24 heures
+- Le projet doit utiliser React (≥ 16.8.0)
+- Le code livré doit respecter les bonnes pratiques standards de développement (formatage, DRY, séparation des responsabilités, composants atomiques, gestion des erreurs, etc)
+- Le livrable est un lien vers le repo avec en README :
+    - des indications (exhaustives) sur comment installer et lancer l'application en local
+    - un lien de la version en ligne
+    - un rapide (et succinct) bilan de l'exercice (2 difficultés, 2 réussites, 2 évolutions possibles)
 
-## How to use
+Le repository peut être hébergé sur Github ou Gitlab. Si l’accès est privé, il est possible de m’ajouter si besoin avec @sevseux
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+## Comment installer et lancer l'application en local
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-```
+## Lien de la version en ligne
 
-```bash
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
-
-```bash
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+## Bilan de l'exercice
+### Difficultés
+### Réussites
+### Évolutions possibles
