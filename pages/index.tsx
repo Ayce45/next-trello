@@ -3,11 +3,13 @@ import Head from 'next/head'
 import Header from "../components/organisms/Header";
 import Button from "../components/atoms/Button";
 import ListContainer from "../components/organisms/ListContainer";
-import {useState} from "react";
+import useLocalStorageState from 'use-local-storage-state'
 import {dataset} from "../data/dataset";
 
 const Home: NextPage = () => {
-    const [items, setItems] = useState(dataset)
+    const [items, setItems] = useLocalStorageState('items', {
+        defaultValue: dataset
+    })
 
     const handleAddList = (title: string) => {
         setItems((prevItems: any) => [
@@ -24,56 +26,71 @@ const Home: NextPage = () => {
         setItems((prevItems: any) => prevItems.filter((items: { id: number; }) => (items.id !== id)));
     };
 
-    const handleAddCard = (id: number, title: string,) => {
-        setItems((prevItems: any) => {
-            let newItems = [...prevItems]
-            let list = newItems.find((item: { id: number; }) => item.id === id)
-            list.cards = [...list.cards, {
-                id: list.cards.length + 1,
-                title: title,
-                description: '',
-                follow: false
-            }]
-
-            return newItems
-        })
+    const handleAddCard = (idList: number, title: string,) => {
+        setItems(items.map((list: any) =>
+            list.id === idList
+                ? {
+                    ...list,
+                    cards: [...list.cards, {
+                        id: list.cards.length + 1,
+                        title: title,
+                        description: '',
+                        follow: false
+                    }]
+                }
+                : {...list}
+        ))
     };
 
     const handleFollowCard = (idList: number, idCard: number, follow: boolean) => {
-        setItems((prevItems: any) => {
-            let newItems = [...prevItems]
-            let list = newItems.find((item: { id: number; }) => item.id === idList)
-            let card = list.cards.find((card: { id: number; }) => card.id === idCard)
-            card.follow = follow
-
-            return newItems
-        })
+        setItems(
+            items.map((list: any) =>
+                list.id === idList
+                    ? {
+                        ...list,
+                        cards: list.cards.map((card: any) =>
+                            card.id === idCard
+                                ? {...card, follow}
+                                : {...card}
+                        ),
+                    }
+                    : {...list}
+            )
+        );
     };
 
     const handleDescriptionCard = (idList: number, idCard: number, description: string) => {
-        setItems((prevItems: any) => {
-            let newItems = [...prevItems]
-            let list = newItems.find((item: { id: number; }) => item.id === idList)
-            let card = list.cards.find((card: { id: number; }) => card.id === idCard)
-            card.description = description
-
-            return newItems
-        })
+        setItems(
+            items.map((list: any) =>
+                list.id === idList
+                    ? {
+                        ...list,
+                        cards: list.cards.map((card: any) =>
+                            card.id === idCard
+                                ? {...card, description}
+                                : {...card}
+                        ),
+                    }
+                    : {...list}
+            )
+        );
     };
 
     const handleRemoveCard = (idList: number, idCard: number) => {
-        setItems((prevItems: any) => {
-            let newItems = [...prevItems]
-            let list = newItems.find((item: { id: number; }) => item.id === idList)
-            list.cards = list.cards.filter((card: { id: number; }) => card.id !== idCard)
-
-            return newItems
-        })
+        setItems(
+            items.map((list: any) =>
+                list.id === idList
+                    ? {
+                        ...list,
+                        cards: list.cards.filter((card: any) => card.id !== idCard),
+                    }
+                    : {...list}
+            )
+        );
     };
 
     const resetData = () => {
-        setItems(() => dataset)
-        console.log('reset')
+        setItems([...dataset])
     }
 
     return (
@@ -90,7 +107,8 @@ const Home: NextPage = () => {
                 {/* MAIN HEADER */}
                 <div className="flex gap-5">
                     <h1 className="text-white text-lg font-bold ml-[12px] mt-[2px] h-[32px]">Tableau principal</h1>
-                    <Button id="initDataset" type="primary" action="button" click={resetData}>Initialiser le jeu de données</Button>
+                    <Button id="initDataset" type="primary" action="button" click={() => resetData()}>Initialiser le jeu
+                        de données</Button>
                 </div>
                 {/* LIST CONTAINER */}
                 <ListContainer items={items}

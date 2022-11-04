@@ -14,23 +14,26 @@
 - Le projet doit utiliser React (≥ 16.8.0)
 - Le code livré doit respecter les bonnes pratiques standards de développement (formatage, DRY, séparation des responsabilités, composants atomiques, gestion des erreurs, etc)
 - Le livrable est un lien vers le repo avec en README :
-    - des indications (exhaustives) sur comment installer et lancer l'application en local
-    - un lien de la version en ligne
-    - un rapide (et succinct) bilan de l'exercice (2 difficultés, 2 réussites, 2 évolutions possibles)
+  - des indications (exhaustives) sur comment installer et lancer l'application en local
+  - un lien de la version en ligne
+  - un rapide (et succinct) bilan de l'exercice (2 difficultés, 2 réussites, 2 évolutions possibles)
 
 Le repository peut être hébergé sur Github ou Gitlab. Si l’accès est privé, il est possible de m’ajouter si besoin avec @sevseux
 
 ## Comment installer et lancer l'application en local
-
+``
+npm install
+npm run dev
+``
 ## Lien de la version en ligne
 https://ferway-bea2e.web.app/
 ## Bilan de l'exercice
 ### Difficultés
-- Localstorage, j'y arrive bien en vanilla, en vue mais la impossible...
+- 
 - Typescript, c'était la deuxième fois, il y a beaucoup d'any :x
 ### Réussites
 - Cypress
 - PIXEL PERFECT
 ### Évolutions possibles
 - Drag and drop
-- Remplacé les confirm par une vraie modal
+- Storybook

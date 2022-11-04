@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Button from "../atoms/Button";
-import {useState} from "react";
+import React, {useState} from "react";
 
 import menu from 'assets/menu.png'
 import crossDark from "assets/cross-dark.png";
@@ -23,10 +23,39 @@ const List = ({id, children, title, removeList, addCard}: Props) => {
 
     const handleSubmit = async (event: any) => {
         event.preventDefault()
-        addCard(id, event.target.title.value)
-        event.target.title.value = ''
-        setShowForm(false)
+        if (event.target.title.value !== '') {
+            addCard(id, event.target.title.value)
+            event.target.title.value = ''
+            setShowForm(false)
+        }
     }
+
+    const useOutsideClick = (callback: any) => {
+        const ref = React.useRef();
+
+        React.useEffect(() => {
+            const handleClick = (event: any) => {
+                // @ts-ignore
+                if (ref.current && !ref.current.contains(event.target)) {
+                    callback();
+                }
+            };
+
+            document.addEventListener('click', handleClick);
+
+            return () => {
+                document.removeEventListener('click', handleClick);
+            };
+        }, [ref]);
+
+        return ref;
+    };
+
+    const handleClickOutside = () => {
+        setShowForm(false)
+    };
+
+    const ref = useOutsideClick(handleClickOutside);
 
     return (
         <div id={"list-" + id} className="bg-[#ebecf0] text-sm text-[#313131] rounded-[3px] w-[272px]">
@@ -44,13 +73,16 @@ const List = ({id, children, title, removeList, addCard}: Props) => {
             <div className="px-[8px] flex flex-col gap-2">
                 {children}
             </div>
-            <form onSubmit={handleSubmit} className="p-[8px]">
+            <form
+                // @ts-ignore
+                ref={ref} onSubmit={handleSubmit} className="p-[8px]">
                 {!showForm &&
-                    <Button id="showCardForm" click={() => setShowForm(true)}
+                    <Button id="showCardForm" click={(e: any) => {e.stopPropagation();setShowForm(true)}}
                             type="secondary">{children.length ? "Ajouter une autre carte" : "Ajouter une carte"}</Button>}
                 {showForm &&
                     <>
-                        <textarea name="title" id="title" placeholder="Saisissez un titre pour cette carte…" className="appearance-none w-full p-[8px] placeholder:text-gray-500 min-h-[72px] shadow-[rgb(9_30_66_/_25%)_0px_1px_0px] outline-none"></textarea>
+                        <textarea autoFocus name="title" id="title" placeholder="Saisissez un titre pour cette carte…"
+                                  className="appearance-none w-full p-[8px] placeholder:text-gray-500 min-h-[72px] shadow-[rgb(9_30_66_/_25%)_0px_1px_0px] outline-none"></textarea>
                         <div className="mt-[3px] flex items-center gap-3">
                             <Button id="addCard" type="primary" action="submit">Ajouter une carte</Button>
                             <button

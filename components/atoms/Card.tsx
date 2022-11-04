@@ -101,7 +101,7 @@ const Card = ({id, title, list, listId, description, follow, followCard, removeC
                                                                    onClick={() => setShowForm(true)}>{description}</div>}
                                         {showForm &&
                                             <form onSubmit={handleSubmit}>
-                                                <textarea name="description" id="description"
+                                                <textarea autoFocus name="description" id="description"
                                                           placeholder="Ajouter une description plus détaillée…"
                                                           className="appearance-none w-full p-[12px] placeholder:text-gray-500 shadow-[rgb(9_30_66_/_13%)_0px_0px_0px_1px_inset] outline-none focus:shadow-[rgb(0_121_191)_0px_0px_0px_2px_inset] rounded-[3px] h-[62px] mt-[12px]" defaultValue={description}></textarea>
                                                 <div className="mt-[3px] flex items-center gap-3">
