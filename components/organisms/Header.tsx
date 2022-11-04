@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import trello from 'assets/trello.png'
 
 const Header = () => (

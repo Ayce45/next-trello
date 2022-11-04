@@ -3,6 +3,7 @@ import plusWhite from 'assets/plus-white.png'
 import eyeGray from 'assets/eye-gray.png'
 import minus from 'assets/minus.png'
 import check from 'assets/check.png'
+
 import Image from "next/image";
 
 type Props = {
@@ -23,22 +24,14 @@ const types: {[key:string]: string} = {
 
 const Button = ({children, type, checked, click, action}: Props) => (
     <button onClick={click} type={action ?? 'button'} className={types[type]}>
-        {type === 'secondary' &&
-            <Image src={plus} alt="plus"/>
-        }
-        {type === 'tertiary' &&
-            <Image src={plusWhite} alt="plus"/>
-        }
-        {type === 'follow' &&
-            <Image src={eyeGray} alt="eye"/>
-        }
-        {type === 'delete' &&
-            <Image src={minus} alt="minus"/>
-        }
+        {type === 'secondary' && <Image src={plus} alt="plus"/>}
+        {type === 'tertiary' && <Image src={plusWhite} alt="plus"/>}
+        {type === 'follow' && <Image src={eyeGray} alt="eye"/>}
+        {type === 'delete' && <Image src={minus} alt="minus"/>        }
+
         {children}
-        {checked &&
-            <Image src={check} alt="check" className="absolute right-1"/>
-        }
+
+        {checked && <Image src={check} alt="check" className="absolute right-1"/>}
     </button>
 );
 

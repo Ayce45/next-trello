@@ -85,9 +85,9 @@ const Card = ({id, title, list, listId, description, follow, followCard, removeC
                                     </div>
                                     <button
                                         onClick={() => setShowModal(false)}
-                                        className="absolute top-[14px] right-[14px]"
+                                        className="absolute top-[7px] right-[7px] p-2 rounded-full hover:bg-[#091e4214] hover:brightness-50"
                                     >
-                                        <Image src={cross} alt="cross"/>
+                                        <Image src={cross} alt="cross" className=""/>
                                     </button>
                                 </div>
                                 {/* FORM */}

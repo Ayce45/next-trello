@@ -9,7 +9,6 @@ import {dataset} from "../data/dataset";
 const Home: NextPage = () => {
     const [items, setItems] = useState(dataset)
 
-
     const handleAddList = (title: string) => {
         setItems((prevItems: any) => [
             ...prevItems,
@@ -19,6 +18,10 @@ const Home: NextPage = () => {
                 cards: []
             }
         ]);
+    };
+
+    const handleRemoveList = (id: number) => {
+        setItems((prevItems: any) => prevItems.filter((items: { id: number; }) => (items.id !== id)));
     };
 
     const handleAddCard = (id: number, title: string,) => {
@@ -68,10 +71,6 @@ const Home: NextPage = () => {
         })
     };
 
-    const handleRemoveList = (id: number) => {
-        setItems((prevItems: any) => prevItems.filter((items: { id: number; }) => (items.id !== id)));
-    };
-
     const resetData = () => {
         setItems(dataset)
     }
@@ -83,13 +82,16 @@ const Home: NextPage = () => {
                 <link rel="icon" href="/favicon.png"/>
             </Head>
 
+            {/* NAV HEADER */}
             <Header/>
 
             <main className="p-[8px]">
+                {/* MAIN HEADER */}
                 <div className="flex gap-5">
                     <h1 className="text-white text-lg font-bold ml-[12px] mt-[2px] h-[32px]">Tableau principal</h1>
                     <Button type="primary" action="button" click={resetData}>Initialiser le jeu de données</Button>
                 </div>
+                {/* LIST CONTAINER */}
                 <ListContainer items={items}
                                addList={handleAddList}
                                removeList={handleRemoveList}

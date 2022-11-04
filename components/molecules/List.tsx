@@ -1,7 +1,8 @@
-import menu from 'assets/menu.png'
 import Image from "next/image";
 import Button from "../atoms/Button";
 import {useState} from "react";
+
+import menu from 'assets/menu.png'
 import crossDark from "assets/cross-dark.png";
 
 type Props = {
