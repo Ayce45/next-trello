@@ -72,7 +72,8 @@ const Home: NextPage = () => {
     };
 
     const resetData = () => {
-        setItems(dataset)
+        setItems(() => dataset)
+        console.log('reset')
     }
 
     return (
@@ -89,7 +90,7 @@ const Home: NextPage = () => {
                 {/* MAIN HEADER */}
                 <div className="flex gap-5">
                     <h1 className="text-white text-lg font-bold ml-[12px] mt-[2px] h-[32px]">Tableau principal</h1>
-                    <Button type="primary" action="button" click={resetData}>Initialiser le jeu de données</Button>
+                    <Button id="initDataset" type="primary" action="button" click={resetData}>Initialiser le jeu de données</Button>
                 </div>
                 {/* LIST CONTAINER */}
                 <ListContainer items={items}

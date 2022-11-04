@@ -31,9 +31,7 @@ const Card = ({id, title, list, listId, description, follow, followCard, removeC
 
     const handleRemoveCard = (event: any) => {
         event.preventDefault()
-        if (confirm(`Vous allez supprimer la carte nommée ${title}.\n
-                     Appuyer sur \"OK\" pour continuer.\n
-                     Ou sur \"Annuler\" pour fermer.\n`)) {
+        if (confirm(`Vous allez supprimer la carte nommée ${title}.\nAppuyer sur \"OK\" pour continuer.\nOu sur \"Annuler\" pour fermer.\n`)) {
             removeCard(listId, id)
             setShowModal(false)
         }
@@ -49,6 +47,7 @@ const Card = ({id, title, list, listId, description, follow, followCard, removeC
         <>
             {/* CARD */}
             <button
+                id={"card-" + id}
                 className="shadow-[rgb(9_30_66_/_25%)_0px_1px_0px] h-auto bg-white rounded-[3px] hover:bg-transparent"
                 onClick={() => setShowModal(true)}>
                 <div
@@ -84,28 +83,29 @@ const Card = ({id, title, list, listId, description, follow, followCard, removeC
                                             <Image src={eye} alt="eye" className="ml-[1.1px]"/>}
                                     </div>
                                     <button
+                                        id="close"
                                         onClick={() => setShowModal(false)}
-                                        className="absolute top-[7px] right-[7px] p-2 rounded-full hover:bg-[#091e4214] hover:brightness-50"
+                                        className="absolute top-[7px] right-[7px] rounded-full hover:bg-[#091e4214] hover:brightness-50 h-[30px] w-[30px]"
                                     >
-                                        <Image src={cross} alt="cross" className=""/>
+                                        <Image src={cross} alt="cross"/>
                                     </button>
                                 </div>
                                 {/* FORM */}
                                 <div className="flex gap-5 mb-[20px]">
                                     <div className="grow">
                                         <div className="text-[18px] font-semibold mt-[25px]">Description</div>
-                                        {!description && !showForm ? <div onClick={() => setShowForm(true)}
+                                        {!description && !showForm ? <div id="showDescriptionForm" onClick={() => setShowForm(true)}
                                                                           className="bg-[#091e420a] h-[50px] rounded-[3px] cursor-pointer py-[8px] px-[12px] mt-[11px] cursor-pointer">
                                             Ajouter une description plus détaillée…
-                                        </div> : !showForm && <div className="mt-[11px] cursor-pointer"
+                                        </div> : !showForm && <div id="showDescriptionForm" className="mt-[11px] cursor-pointer"
                                                                    onClick={() => setShowForm(true)}>{description}</div>}
                                         {showForm &&
                                             <form onSubmit={handleSubmit}>
                                                 <textarea name="description" id="description"
                                                           placeholder="Ajouter une description plus détaillée…"
-                                                          className="appearance-none w-full p-[12px] placeholder:text-gray-500 shadow-[rgb(9_30_66_/_13%)_0px_0px_0px_1px_inset] outline-none focus:shadow-[rgb(0_121_191)_0px_0px_0px_2px_inset] rounded-[3px] h-[62px] mt-[12px]"></textarea>
+                                                          className="appearance-none w-full p-[12px] placeholder:text-gray-500 shadow-[rgb(9_30_66_/_13%)_0px_0px_0px_1px_inset] outline-none focus:shadow-[rgb(0_121_191)_0px_0px_0px_2px_inset] rounded-[3px] h-[62px] mt-[12px]" defaultValue={description}></textarea>
                                                 <div className="mt-[3px] flex items-center gap-3">
-                                                    <Button type="primary" action="submit">Enregistrer</Button>
+                                                    <Button id="save" type="primary" action="submit">Enregistrer</Button>
                                                     <button
                                                         onClick={() => setShowForm(false)}
                                                     >
@@ -121,9 +121,9 @@ const Card = ({id, title, list, listId, description, follow, followCard, removeC
                                         <div className="text-[18px] font-semibold leading-[32px] mt-[19px]">Actions
                                         </div>
                                         <div className="flex flex-col gap-2 mt-[9px]">
-                                            <Button type="follow" checked={follow}
+                                            <Button id="follow" type="follow" checked={follow}
                                                     click={handleFollowCard}>Suivre</Button>
-                                            <Button type="delete" click={handleRemoveCard}>Supprimer</Button>
+                                            <Button id="delete" type="delete" click={handleRemoveCard}>Supprimer</Button>
                                         </div>
                                     </div>
                                 </div>

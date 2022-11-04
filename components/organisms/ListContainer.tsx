@@ -22,6 +22,8 @@ const ListContainer = ({items, addList, removeList, addCard, followCard, removeC
     const handleSubmit = async (event: any) => {
         event.preventDefault()
         addList(event.target.title.value)
+        event.target.title.value = ''
+        setShowForm(false)
     }
 
     return (
@@ -43,7 +45,7 @@ const ListContainer = ({items, addList, removeList, addCard, followCard, removeC
                         <input placeholder="Saisissez le titre de la liste…" type="text" name="title" id="title"
                                className="shadow-[rgb(0_121_191)_0px_0px_0px_2px_inset] border-[0px] border-transparent h-[36px] px-[12px] rounded-[3px] placeholder:text-[13.33px] outline-none placeholder:text-gray-500 pl-[13px]"/>
                         <div className="mt-1 flex items-center gap-3">
-                            <Button type="primary" action="submit">Ajouter une liste</Button>
+                            <Button id="addList" type="primary" action="submit">Ajouter une liste</Button>
                             <button
                                 onClick={() => setShowForm(false)}
                             >
@@ -53,7 +55,7 @@ const ListContainer = ({items, addList, removeList, addCard, followCard, removeC
                     </>
                 }
                 {!showForm &&
-                    <Button type="tertiary" action="button" click={() => setShowForm(true)}>Ajouter une autre
+                    <Button id="showListForm" type="tertiary" action="button" click={() => setShowForm(true)}>Ajouter une autre
                         liste</Button>
                 }
             </form>

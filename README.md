@@ -26,5 +26,11 @@ Le repository peut être hébergé sur Github ou Gitlab. Si l’accès est priv�
 https://ferway-bea2e.web.app/
 ## Bilan de l'exercice
 ### Difficultés
+- Localstorage, j'y arrive bien en vanilla, en vue mais la impossible...
+- Typescript, c'était la deuxième fois, il y a beaucoup d'any :x
 ### Réussites
+- Cypress
+- PIXEL PERFECT
 ### Évolutions possibles
+- Drag and drop
+- Remplacé les confirm par une vraie modal

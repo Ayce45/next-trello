@@ -7,6 +7,7 @@ import check from 'assets/check.png'
 import Image from "next/image";
 
 type Props = {
+    id: string,
     type: string,
     children: string,
     checked?: boolean,
@@ -14,7 +15,7 @@ type Props = {
     action?: "button" | "submit" | "reset"
 };
 
-const types: {[key:string]: string} = {
+const types: { [key: string]: string } = {
     primary: 'relative bg-[#5aac44] text-white rounded-[3px] text-[14px] leading-[34px] font-arial px-3 outline-none h-[32px] hover:bg-[#61bd4f]',
     secondary: 'relative bg-transparent text-[#616161] rounded-[3px] text-sm font-arial w-full text-left flex items-center h-[30px] px-[16px] gap-2 hover:bg-[#091e4214]',
     tertiary: 'relative bg-transparent text-white rounded-[3px] text-sm font-arial text-left flex items-center px-[16px] gap-2 hover:bg-transparent h-[40px] leading-[32px] w-[272px]',
@@ -22,16 +23,18 @@ const types: {[key:string]: string} = {
     delete: 'relative bg-[#091e420a] text-[#313131] rounded-[3px] text-sm font-arial text-left flex items-center px-[4px] hover:bg-[#091e4214] w-full hover:text-black leading-[32px] pl-[13px] pr-[4px] gap-[3px]'
 }
 
-const Button = ({children, type, checked, click, action}: Props) => (
-    <button onClick={click} type={action ?? 'button'} className={types[type]}>
+const Button = ({id, children, type, checked, click, action}: Props) => (
+    <button id={id} onClick={click} type={action ?? 'button'} className={types[type]}>
         {type === 'secondary' && <Image src={plus} alt="plus"/>}
         {type === 'tertiary' && <Image src={plusWhite} alt="plus"/>}
         {type === 'follow' && <Image src={eyeGray} alt="eye"/>}
-        {type === 'delete' && <Image src={minus} alt="minus"/>        }
+        {type === 'delete' && <Image src={minus} alt="minus"/>}
 
         {children}
 
-        {checked && <Image src={check} alt="check" className="absolute right-1"/>}
+        {checked && <div className="absolute right-1 flex justify-center items-center">
+            <Image src={check} alt="check"/>
+        </div>}
     </button>
 );
 

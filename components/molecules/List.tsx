@@ -24,17 +24,19 @@ const List = ({id, children, title, removeList, addCard}: Props) => {
     const handleSubmit = async (event: any) => {
         event.preventDefault()
         addCard(id, event.target.title.value)
+        event.target.title.value = ''
+        setShowForm(false)
     }
 
     return (
-        <div className="bg-[#ebecf0] text-sm text-[#313131] rounded-[3px] w-[272px]">
+        <div id={"list-" + id} className="bg-[#ebecf0] text-sm text-[#313131] rounded-[3px] w-[272px]">
             <div className="flex px-[8px] pt-[10px] pb-[8px] justify-between">
                 <div className="px-[8px] leading-[26px] font-semibold">
                     {title}
                 </div>
                 <div title="Supprimer cette liste"
                      className="mt-[-4px] h-[32px] w-[32px] rounded-[3px] hover:bg-[#091e4221] cursor-pointer leading-none">
-                    <div className="h-full w-full flex justify-center items-center" onClick={handlerRemove}>
+                    <div className="deleteList h-full w-full flex justify-center items-center" onClick={handlerRemove}>
                         <Image src={menu} alt="menu" height={3}/>
                     </div>
                 </div>
@@ -44,13 +46,13 @@ const List = ({id, children, title, removeList, addCard}: Props) => {
             </div>
             <form onSubmit={handleSubmit} className="p-[8px]">
                 {!showForm &&
-                    <Button click={() => setShowForm(true)}
+                    <Button id="showCardForm" click={() => setShowForm(true)}
                             type="secondary">{children.length ? "Ajouter une autre carte" : "Ajouter une carte"}</Button>}
                 {showForm &&
                     <>
                         <textarea name="title" id="title" placeholder="Saisissez un titre pour cette carte…" className="appearance-none w-full p-[8px] placeholder:text-gray-500 min-h-[72px] shadow-[rgb(9_30_66_/_25%)_0px_1px_0px] outline-none"></textarea>
                         <div className="mt-[3px] flex items-center gap-3">
-                            <Button type="primary" action="submit">Ajouter une carte</Button>
+                            <Button id="addCard" type="primary" action="submit">Ajouter une carte</Button>
                             <button
                                 onClick={() => setShowForm(false)}
                             >
