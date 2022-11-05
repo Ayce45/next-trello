@@ -3,7 +3,7 @@
 ## Énoncé
 
 - L’objectif est de recréer le plus fidèlement possible l'application fournie : [https://next-trello.web.app/](https://next-trello.web.app/).
-- Le but est d’avoir une application *pixel perfect*
+- Le but est d’avoir une application _pixel perfect_
 - Il n’est pas demandé d’améliorer l’application
 - Il n’y a pas besoin de gérer quelconque base de données
 - L’application sera à déployer via Firebase ([Hosting](https://firebase.google.com/products/hosting))
@@ -21,19 +21,26 @@
 Le repository peut être hébergé sur Github ou Gitlab. Si l’accès est privé, il est possible de m’ajouter si besoin avec @sevseux
 
 ## Comment installer et lancer l'application en local
-``
-npm install
-npm run dev
-``
+
+`npm install npm run dev`
+
 ## Lien de la version en ligne
+
 https://ferway-bea2e.web.app/
+
 ## Bilan de l'exercice
+
 ### Difficultés
-- 
+
+-
 - Typescript, c'était la deuxième fois, il y a beaucoup d'any :x
+
 ### Réussites
+
 - Cypress
 - PIXEL PERFECT
+
 ### Évolutions possibles
+
 - Drag and drop
 - Storybook
