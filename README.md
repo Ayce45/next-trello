@@ -28,19 +28,36 @@ Le repository peut être hébergé sur Github ou Gitlab. Si l’accès est priv�
 
 https://ferway-bea2e.web.app/
 
+## Comment installer et lancer l'application en local
+
+```
+npm install 
+```
+```
+npm run dev
+```
+
+## Lien de la version en ligne
+
+https://ferway-bea2e.web.app/
+
 ## Bilan de l'exercice
+
+- Cypress avec test de l'application dans la CI (`npm run cypress`)
+- Storybook avec tous les composants de l'application, branch [feature/storybook](https://github.com/Ayce45/ferway-trello/tree/feature/storybook) (`npm run storybook`)
+- Décomposition atomique de l'exercice sur [Figma](https://www.figma.com/file/hMCt82dPx92iJXznWPkQdx/Exercice-D%C3%A9veloppeur-React-(Trello)?node-id=0%3A1)
 
 ### Difficultés
 
--
-- Typescript, c'était la deuxième fois, il y a beaucoup d'any :x
+- Storybook, installation compliquée dû à l'optimisation des images
+- Typescript, c'était la deuxième fois, il y a beaucoup d'any
 
 ### Réussites
 
-- Cypress
+- Code propre
 - PIXEL PERFECT
 
 ### Évolutions possibles
 
 - Drag and drop
-- Storybook
+- Remplacer les confirm par des modals
