@@ -86,6 +86,7 @@ const List = ({id, children, title, removeList, addCard}: Props) => {
                         <div className="mt-[3px] flex items-center gap-3">
                             <Button id="addCard" type="primary" action="submit">Ajouter une carte</Button>
                             <button
+                                className="flex items-center"
                                 onClick={() => setShowForm(false)}
                             >
                                 <Image src={crossDark} alt="cross" className="opacity-50 hover:opacity-100 transition"/>

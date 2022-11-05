@@ -58,7 +58,9 @@ const Card = ({id, title, list, listId, description, follow, followCard, removeC
                         {follow &&
                             <Image src={eye} alt="eye"/>}
                         {description &&
-                            <Image src={paragraph} alt="paragraph" className="pt-[1px]"/>}
+                            <div className="flex items-start pt-[1px]">
+                                <Image src={paragraph} alt="paragraph"/>
+                            </div>}
                     </div>}
             </button>
             {/* MODAL */}
@@ -70,14 +72,14 @@ const Card = ({id, title, list, listId, description, follow, followCard, removeC
                     >
                         <div className="relative w-auto my-6 mx-auto w-[768px]">
                             <div
-                                className="border-0 rounded-[3px] shadow-lg relative flex flex-col w-full bg-[#f4f5f7] outline-none focus:outline-none px-[24px] py-[12px]"
+                                className="border-0 rounded-[3px] shadow-lg relative flex flex-col w-full bg-[#f4f5f7] outline-none focus:outline-none px-[24px] py-[11px]"
                                 onClick={(e) => e.stopPropagation()}>
                                 {/* HEADER */}
-                                <div>
-                                    <h3 className="text-[20px] font-semibold flex items-center h-[33px] mt-[2px]">
+                                <div className="mt-[-3px]">
+                                    <h3 className="text-[20px] font-semibold flex items-center h-[37px] mt-[2px] mb-[1px]">
                                         {title}
                                     </h3>
-                                    <div className="flex items-center gap-1">
+                                    <div className="flex items-center gap-1 mt-[-2px]">
                                         Dans la liste <span className="underline">{list}</span>
                                         {follow &&
                                             <Image src={eye} alt="eye" className="ml-[1.1px]"/>}
@@ -85,7 +87,7 @@ const Card = ({id, title, list, listId, description, follow, followCard, removeC
                                     <button
                                         id="close"
                                         onClick={() => setShowModal(false)}
-                                        className="absolute top-[7px] right-[7px] rounded-full hover:bg-[#091e4214] hover:brightness-50 h-[30px] w-[30px]"
+                                        className="absolute top-[6px] right-[5px] rounded-full hover:bg-[#091e4214] hover:brightness-50 h-[30px] w-[30px]"
                                     >
                                         <Image src={cross} alt="cross"/>
                                     </button>
@@ -103,10 +105,11 @@ const Card = ({id, title, list, listId, description, follow, followCard, removeC
                                             <form onSubmit={handleSubmit}>
                                                 <textarea autoFocus name="description" id="description"
                                                           placeholder="Ajouter une description plus détaillée…"
-                                                          className="appearance-none w-full p-[12px] placeholder:text-gray-500 shadow-[rgb(9_30_66_/_13%)_0px_0px_0px_1px_inset] outline-none focus:shadow-[rgb(0_121_191)_0px_0px_0px_2px_inset] rounded-[3px] h-[62px] mt-[12px]" defaultValue={description}></textarea>
+                                                          className="appearance-none w-full p-[12px] placeholder:text-gray-500 shadow-[rgb(9_30_66_/_13%)_0px_0px_0px_1px_inset] outline-none focus:shadow-[rgb(0_121_191)_0px_0px_0px_2px_inset] rounded-[3px] h-[62px] mt-[11px]" defaultValue={description}></textarea>
                                                 <div className="mt-[3px] flex items-center gap-3">
                                                     <Button id="save" type="primary" action="submit">Enregistrer</Button>
                                                     <button
+                                                        className="flex items-center"
                                                         onClick={() => setShowForm(false)}
                                                     >
                                                         <Image src={crossDark} alt="cross"

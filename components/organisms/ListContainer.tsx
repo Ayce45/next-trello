@@ -80,6 +80,7 @@ const ListContainer = ({items, addList, removeList, addCard, followCard, removeC
                         <div className="mt-1 flex items-center gap-3">
                             <Button id="addList" type="primary" action="submit">Ajouter une liste</Button>
                             <button
+                                className="flex items-center"
                                 onClick={() => setShowForm(false)}
                             >
                                 <Image src={crossDark} alt="cross" className="opacity-50 hover:opacity-100 transition"/>
