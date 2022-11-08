@@ -22,14 +22,6 @@ Le repository peut être hébergé sur Github ou Gitlab. Si l’accès est priv�
 
 ## Comment installer et lancer l'application en local
 
-`npm install npm run dev`
-
-## Lien de la version en ligne
-
-https://ferway-bea2e.web.app/
-
-## Comment installer et lancer l'application en local
-
 ```
 npm install 
 ```
