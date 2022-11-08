@@ -1,8 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import ListContainer from './ListContainer';
-import List from '../molecules/List';
-import Card from '../atoms/Card';
 import { dataset } from '../../data/dataset';
 
 export default {
