@@ -1,4 +1,4 @@
-# Exercice Développeur React (Trello)
+# NextJS Trello Clone
 
 ## Énoncé
 
