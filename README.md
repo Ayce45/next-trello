@@ -18,8 +18,6 @@
   - un lien de la version en ligne
   - un rapide (et succinct) bilan de l'exercice (2 difficultés, 2 réussites, 2 évolutions possibles)
 
-Le repository peut être hébergé sur Github ou Gitlab. Si l’accès est privé, il est possible de m’ajouter si besoin avec @sevseux
-
 ## Comment installer et lancer l'application en local
 
 ```
